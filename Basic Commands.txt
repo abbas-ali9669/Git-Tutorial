@@ -1,0 +1,131 @@
+Q - What is git.
+A - Git is a version control system, is a tool that helps to track changes in code.
+And It is:
+    popular
+    Free & open source
+    Fast & Scalable
+
+There are two approaches
+1. Create first remote repository (recommended, because it is easy to manage).
+2. Create first local repository.
+
+1. Create first remote repository (First Approach)
+For Configuring the git.
+    -> git config --global user.name "username"
+    -> git config --global user.email "example@email.com"
+    -> git config --list
+
+For Cloning and status.
+    -> git clone {repository link}
+
+For checking status.
+    -> git status
+    There are four tracks in status
+    1. Untracked
+        New files that git doesn't track
+    2. modified
+        Changes in file
+    3. Staged
+        File is ready to Staged
+    4. Unmodified
+        Uchanged
+
+Add & Commit
+    add
+        adds new or changed files in your working directory to the git staging area
+        -> git add "file name"
+        -> git add . (add all changes)
+    commit
+        It is the record of changes
+        -> git commit -m "Some Message"
+
+Push
+    Uploads local repo content to remote repo (on Github)
+    -> git push origin main
+
+    origin - Origin is the remote github. 
+    main - Main is name of our branch.
+
+
+These all the commands above are used when we have already created a repo on origin.
+But how can we upload a local project onto the github.
+
+2. Create first local repository. (Second Approach)
+
+Here come the git init.
+1. First open the project 
+2. Go to terminal/cmd/gitbash
+3. Move to the folder where you want to create the repo.
+4. And type the command 
+
+->  git init
+After all the modifications
+You have to create the empty repository on github
+Then follow these steps on the terminal/cmd/gitbash:
+    -> git remote add origin "link of that empty repository"
+    -> git remote -v
+        To verify the remote
+    -> git branch
+        To check branch
+    -> git branch -M main
+        To rename the branch
+        And after all the changes in the project
+    finally push
+    -> git push origin main
+    Or
+    -> git push -u origin main
+    -u - Is used to set upstream.
+    If you dont want to write "origin main" every time while pushing, then you can just use -u one time.
+    And After you can just use -> git push
+
+
+Theoretical Part
+Workflow (Local Git)
+Github repo -> Clone -> Changes -> Add -> Commit -> Push.
+
+Git Branches.
+A branch is basically a different line of development for your code base.
+It allows you to work on several features or fixes simultaneously without affecting the main codebase.
+
+To check the branch use command (Covered above)
+-> git branch
+
+To rename the branch (Covered above)
+-> git branch -M "name of branch"
+
+To navigate from one branch to another
+-> git checkout "branch name"
+
+To create a new branch
+-> git checkout -b "new branch name"
+
+To delete a branch 
+-> git branch -d "branch name"
+NOTE - If our current branch is selected, then we cannot delete that, first we have to change the branch then we can delete that branch.
+
+And finally push.
+Here while pushing becarefull about branch name.
+If you forget to mention the branch name here also it will take the current branch name i.e., the branch which you are currently working upon.
+-> git push origin "branch name"
+
+Merging Code.
+Way 1. (Through cmd)
+To compare Commits, Branches, files & more use
+-> git diff "other branch name"
+
+To merge the Branches
+-> git merge "other branch name"
+
+Way 2. (Using Github)
+Create a PR (Pull Request)
+Pull Request - It lets you tell others about changes you've pushed to a branch in a repository on Github
+When someone makes a pull request, it opens a conversation so that you can review the proposed changes and decide whether to accept them.
+Once you've merged your Branches on Github.
+
+Head towards the local and execute command
+-> git pull origin main  (This will sync your local copy with remote.)
+Used to fetch and download content from a remote repo and immediately update the local repo to match that content.
+
+Resolving Merge Conflicts.
+When two developers make conflicting modifications to the same file or same line
+An event that take place when git is unable to automatically resolve differences in code between two commits
